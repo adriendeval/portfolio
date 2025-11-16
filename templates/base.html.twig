@@ -1,17 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Portfolio{% endblock %}</title>
-        {% block stylesheets %}
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Portfolio
+			{% endblock %}
+		</title>
+		<link rel="icon" href="/assets/favicon.ico"/>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body class="min-h-screen flex items-center justify-center">
-        {% block body %}{% endblock %}
-    </body>
+		<style>
+			{% block stylesheets %}
+				@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+				* {
+					font-family: 'Space Grotesk', sans-serif;
+				}
+			{% endblock %}
+		</style>
+
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+			<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+		{% endblock %}
+	</head>
+	<body>
+		<nav class="bg-slate-900">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<input type="checkbox" id="nav-toggle" class="peer sr-only" />
+				<div class="flex justify-between h-16 items-center">
+					<a href="/" class="flex-shrink-0 flex items-center text-2xl font-semibold text-white tracking-tight">
+						Adrien Deval
+					</a>
+
+					<label for="nav-toggle" class="sm:hidden text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						<span class="sr-only">Ouvrir le menu</span>
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</label>
+
+					<div class="hidden sm:flex sm:space-x-8">
+						<a href="/" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Accueil
+						</a>
+						<a href="/about" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							À propos
+						</a>
+						<a href="/projects" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Projets
+						</a>
+						<a href="/contact" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Me contacter
+						</a>
+					</div>
+				</div>
+
+				<div class="sm:hidden px-2 pt-2 pb-3 space-y-1 hidden peer-checked:block" aria-label="Menu mobile">
+					<a href="/" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						Accueil
+					</a>
+					<a href="/about" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						À propos
+					</a>
+					<a href="/projects" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						Projets
+					</a>
+					<a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						Me contacter
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		{% block body %}{% endblock %}
+
+		{# Footer, dans le même style et la même simplicité que le navbar #}
+		<footer class="bg-slate-900 text-white py-4 mt-8">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+				<p>&copy;
+					{{ "now"|date("Y") }}
+					Adrien Deval. Tous droits réservés.</p>
+			</div>
+		</footer>
+	</body>
 </html>
