@@ -2,7 +2,7 @@ body {
     background-color: white;
 }
 
-::selection {
-    background-color: var(--color-indigo-600);
+*::selection {
+    background-color: oklch(58.5% 0.233 277.117);
     color: #fff;
 }
