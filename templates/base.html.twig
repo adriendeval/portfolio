@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -27,6 +27,7 @@
 		{% endblock %}
 	</head>
 	<body>
+		{# Navbar #}
 		<nav class="bg-slate-900">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<input type="checkbox" id="nav-toggle" class="peer sr-only" />
@@ -75,9 +76,11 @@
 			</div>
 		</nav>
 
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
 		{% block body %}{% endblock %}
+		</div>
 
-		{# Footer, dans le même style et la même simplicité que le navbar #}
+		{# Footer #}
 		{# <footer class="bg-slate-900 text-white py-4 mt-8">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 				<p>&copy;
