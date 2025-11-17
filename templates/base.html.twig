@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Portfolio
-			{% endblock %}
+			{% block title %}Portfolio{% endblock %}
 		</title>
 		<link rel="icon" href="/assets/favicon.ico"/>
 
@@ -27,9 +26,10 @@
 		{% endblock %}
 	</head>
 	<body>
+		{# Navbar #}
 		<nav class="bg-slate-900">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<input type="checkbox" id="nav-toggle" class="peer sr-only" />
+				<input type="checkbox" id="nav-toggle" class="peer sr-only"/>
 				<div class="flex justify-between h-16 items-center">
 					<a href="/" class="flex-shrink-0 flex items-center text-2xl font-semibold text-white tracking-tight">
 						Adrien Deval
@@ -37,7 +37,7 @@
 
 					<label for="nav-toggle" class="sm:hidden text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400">
 						<span class="sr-only">Ouvrir le menu</span>
-						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
 					</label>
@@ -46,38 +46,48 @@
 						<a href="/" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
 							Accueil
 						</a>
-						<a href="/about" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							À propos
+						<a href="/competences" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Compétences
 						</a>
-						<a href="/projects" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							Projets
+						<a href="/formations" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Formations
 						</a>
-						<a href="/contact" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							Me contacter
+						<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Expériences Professionnelles
+						</a>
+						<a href="/projet-professionnel" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+							Projet Professionnel
 						</a>
 					</div>
 				</div>
 
-				<div class="sm:hidden px-2 pt-2 pb-3 space-y-1 hidden peer-checked:block" aria-label="Menu mobile">
-					<a href="/" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-						Accueil
-					</a>
-					<a href="/about" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-						À propos
-					</a>
-					<a href="/projects" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-						Projets
-					</a>
-					<a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-						Me contacter
-					</a>
+				<div class="@container">
+					<div class="peer-checked:block hidden sm:hidden">
+						<a href="/" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+							Accueil
+						</a>
+						<a href="/competences" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+							Compétences
+						</a>
+						<a href="/formations" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+							Formations
+						</a>
+						<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+							Expériences Professionnelles
+						</a>
+						<a href="/projet-professionnel" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+							Projet Professionnel
+						</a>
+					</div>
 				</div>
 			</div>
 		</nav>
 
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
 		{% block body %}{% endblock %}
+		</div>
 
-		{# Footer, dans le même style et la même simplicité que le navbar #}
+		{# Footer #}
 		{# <footer class="bg-slate-900 text-white py-4 mt-8">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 				<p>&copy;
