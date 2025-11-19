@@ -4,13 +4,19 @@
 
 {% block body %}
 
-    <h1 class="text-6xl font-bold">Accueil</h1>
+	<h1 class="text-6xl font-bold">Accueil</h1>
 
-    <p class="text-lg text-gray-700 mt-4">Bienvenue sur mon portfolio. Sur ce site, vous trouverez toutes les informations nécéssaires à mon sujet. Si vous souhaitez me contacter, voir mes projets sur GitHub et plus encore, voici quelques liens importants.</p>
+	<p class="text-lg text-gray-700 mt-4">Bienvenue sur mon portfolio. Sur ce site, vous trouverez toutes les informations nécéssaires à mon sujet. Si vous souhaitez me contacter, voir mes projets sur GitHub et plus encore, voici quelques liens importants.</p>
 
-    {# Bouton large avec un fond bleu marine foncé #}
-    <div class="mt-6 space-x-4">
-        <a href="https://github.com/adriendeval" class="bg-slate-900 hover:bg-indigo-950 text-white px-8 py-4 rounded-full block text-lg text-center w-full" target="_blank" rel="noopener noreferrer">Voir mon profil GitHub</a>
-    </div>
-	
+	{# Bouton large avec un fond bleu marine foncé #}
+	<div class="mt-6 space-x-4">
+		<a href="https://github.com/adriendeval" class="bg-slate-900 border-2 border-slate-900 hover:bg-white hover:text-slate-900 hover:font-bold text-white px-8 py-4 rounded-full block text-lg text-center w-full transition-all focus:outline-none focus:ring-3 focus:ring-indigo-400 duration-150" target="_blank" rel="noopener noreferrer">
+			<i class="fi fi-brands-github"></i>
+			Voir mon profil GitHub</a>
+
+		<a href="mailto:adrien.deval@proton.me" class="bg-slate-900 border-2 border-slate-900 hover:bg-white hover:text-slate-900 hover:font-bold text-white px-8 py-4 rounded-full block text-lg text-center w-full mt-4 transition-all focus:outline-none focus:ring-3 focus:ring-indigo-400 duration-150" target="_blank" rel="noopener noreferrer">
+			<i class="fi fi-rr-envelope"></i>
+			M'envoyer un email</a>
+	</div>
+
 {% endblock %}

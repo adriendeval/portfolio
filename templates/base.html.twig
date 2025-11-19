@@ -10,38 +10,68 @@
 		<style>
 			{% block stylesheets %}
 				@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+				@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
+				@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
 				* {
 					font-family: 'Space Grotesk', sans-serif;
+				}
+
+				#nav-toggle:checked ~ #nav-header #nav-icon span {
+					transform: rotate(45deg) translate(5px, 5px);
+				}
+
+				#nav-toggle:checked ~ #nav-header #nav-icon span:nth-child(2) {
+					opacity: 0;
+				}
+
+				#nav-toggle:checked ~ #nav-header #nav-icon span:nth-child(3) {
+					transform: rotate(-45deg) translate(7px, -6px);
+				}
+
+				#nav-toggle:checked ~ #nav-content {
+					display: block;
+				}
+
+				.fi {
+					display: inline-block;
+					font-style: normal;
+					font-variant: normal;
+					text-rendering: auto;
+					-webkit-font-smoothing: antialiased;
+					vertical-align: middle;
+					padding-right: 4px;
+				}
+
+				::selection {
+					background-color: #6A5ACD;
+					color: white;
 				}
 			{% endblock %}
 		</style>
 
 		{% block javascripts %}
 			{% block importmap %}
-				{{ importmap('app') }}
+				{# {{ importmap('app') }} #}
 			{% endblock %}
 			<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 			<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 		{% endblock %}
 	</head>
-	<body>
+	<body class="pb-16">
 		{# Navbar #}
-		<nav class="bg-slate-900">
+		<nav class="bg-slate-900 p-4">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<input type="checkbox" id="nav-toggle" class="peer sr-only"/>
-				<div class="flex justify-between h-16 items-center">
+				<input type="checkbox" id="nav-toggle" class="hidden"/>
+				<div id="nav-header" class="flex justify-between h-16 items-center">
 					<a href="/" class="flex-shrink-0 flex items-center text-2xl font-semibold text-white tracking-tight">
 						Adrien Deval
 					</a>
-
-					<label for="nav-toggle" class="sm:hidden text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400">
-						<span class="sr-only">Ouvrir le menu</span>
-						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
+					<label for="nav-toggle" id="nav-icon" class="sm:hidden text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2">
+						<span class="block w-6 h-0.5 bg-white transform transition duration-500 ease-in-out"></span>
+						<span class="block w-6 h-0.5 bg-white mt-1.5 transform transition duration-500 ease-in-out"></span>
+						<span class="block w-6 h-0.5 bg-white mt-1.5 transform transition duration-500 ease-in-out"></span>
 					</label>
-
 					<div class="hidden sm:flex sm:space-x-8">
 						<a href="/" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
 							Accueil
@@ -61,24 +91,23 @@
 					</div>
 				</div>
 
-				<div class="@container">
-					<div class="peer-checked:block hidden sm:hidden">
-						<a href="/" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-							Accueil
-						</a>
-						<a href="/competences" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-							Compétences
-						</a>
-						<a href="/formations" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-							Formations
-						</a>
-						<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-							Expériences Professionnelles
-						</a>
-						<a href="/projet-professionnel" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-							Projet Professionnel
-						</a>
-					</div>
+				{# Menu responsive #}
+				<div id="nav-content" class="hidden sm:hidden">
+					<a href="/" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+						Accueil
+					</a>
+					<a href="/competences" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+						Compétences
+					</a>
+					<a href="/formations" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+						Formations
+					</a>
+					<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+						Expériences Professionnelles
+					</a>
+					<a href="/projet-professionnel" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
+						Projet Professionnel
+					</a>
 				</div>
 			</div>
 		</nav>
@@ -88,12 +117,12 @@
 		</div>
 
 		{# Footer #}
-		{# <footer class="bg-slate-900 text-white py-4 mt-8">
+		<footer class="bg-slate-900 text-white py-4 fixed inset-x-0 bottom-0">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 				<p>&copy;
 					{{ "now"|date("Y") }}
 					Adrien Deval. Tous droits réservés.</p>
 			</div>
-		</footer> #}
+		</footer>
 	</body>
 </html>
