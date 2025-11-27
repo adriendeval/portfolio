@@ -58,70 +58,90 @@
 			<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 		{% endblock %}
 	</head>
-	<body class="pb-16">
+	<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen font-sans antialiased">
 		{# Navbar #}
-		<nav class="bg-slate-900 p-4">
+		<nav class="bg-slate-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800 shadow-lg">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<input type="checkbox" id="nav-toggle" class="hidden"/>
-				<div id="nav-header" class="flex justify-between h-16 items-center">
-					<a href="/" class="flex-shrink-0 flex items-center text-2xl font-semibold text-white tracking-tight">
+				{# Checkbox Hack for Mobile Menu (matches CSS in head) #}
+				<input type="checkbox" id="nav-toggle" class="peer hidden"/>
+				
+				<div id="nav-header" class="flex justify-between h-16 items-center relative z-20">
+					{# Logo #}
+					<a href="/" class="flex-shrink-0 flex items-center gap-2 text-xl font-bold text-white tracking-tight hover:text-indigo-400 transition-colors">
 						Adrien Deval
 					</a>
-					<label for="nav-toggle" id="nav-icon" class="sm:hidden text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 p-2">
-						<span class="block w-6 h-0.5 bg-white transform transition duration-500 ease-in-out"></span>
-						<span class="block w-6 h-0.5 bg-white mt-1.5 transform transition duration-500 ease-in-out"></span>
-						<span class="block w-6 h-0.5 bg-white mt-1.5 transform transition duration-500 ease-in-out"></span>
+
+					{# Mobile Menu Button #}
+					<label for="nav-toggle" id="nav-icon" class="sm:hidden text-slate-300 hover:text-white cursor-pointer p-2 rounded-md hover:bg-slate-800 transition-colors select-none">
+						<div class="w-6 flex flex-col gap-1.5 relative">
+							<span class="block w-6 h-0.5 bg-current transform transition-all duration-300 origin-center"></span>
+							<span class="block w-6 h-0.5 bg-current transform transition-all duration-300 origin-center"></span>
+							<span class="block w-6 h-0.5 bg-current transform transition-all duration-300 origin-center"></span>
+						</div>
 					</label>
-					<div class="hidden sm:flex sm:space-x-8">
-						<a href="/" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							Accueil
-						</a>
-						<a href="/competences" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+
+					{# Desktop Menu #}
+					<div class="hidden sm:flex sm:items-center sm:space-x-1">
+						<a href="/competences" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Compétences
 						</a>
-						<a href="/formations" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
+						<a href="/formations" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Formations
 						</a>
-						<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							Expériences Professionnelles
+						<a href="/experiences-professionnelles" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+							Expériences professionnelles
 						</a>
-						<a href="/projet-professionnel" class="text-white hover:text-indigo-200 px-3 py-2 rounded transition-colors duration-150 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-400">
-							Projet Professionnel
+						<a href="/projet-professionnel" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+							Projet professionnel
+						</a>
+						<a href="/veille-informatique" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+							Veille informatique
 						</a>
 					</div>
 				</div>
 
-				{# Menu responsive #}
-				<div id="nav-content" class="hidden sm:hidden">
-					<a href="/" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-						Accueil
-					</a>
-					<a href="/competences" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-						Compétences
-					</a>
-					<a href="/formations" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-						Formations
-					</a>
-					<a href="/experiences-professionnelles" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-						Expériences Professionnelles
-					</a>
-					<a href="/projet-professionnel" class="text-white hover:text-indigo-200 block px-3 py-2 rounded-md text-base font-medium">
-						Projet Professionnel
-					</a>
+				{# Mobile Menu Content - Improved #}
+				<div id="nav-content" class="hidden peer-checked:block sm:hidden absolute left-0 right-0 top-16 bg-slate-900 border-b border-slate-800 shadow-2xl z-10 animate-in slide-in-from-top-2 duration-200">
+					<div class="flex flex-col p-4 space-y-2">
+						<a href="/competences" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+							<i class="fi fi-rr-star mr-2 text-indigo-400"></i> Compétences
+						</a>
+						<a href="/formations" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+							<i class="fi fi-rr-graduation-cap mr-2 text-indigo-400"></i> Formations
+						</a>
+						<a href="/experiences-professionnelles" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+							<i class="fi fi-rr-briefcase mr-2 text-indigo-400"></i> Expériences
+						</a>
+						<a href="/projet-professionnel" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+							<i class="fi fi-rr-rocket-lunch mr-2 text-indigo-400"></i> Projet Pro
+						</a>
+						<a href="/veille-informatique" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+							<i class="fi fi-rr-search-alt mr-2 text-indigo-400"></i> Veille
+						</a>
+					</div>
 				</div>
 			</div>
 		</nav>
 
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-		{% block body %}{% endblock %}
-		</div>
+		{# Main Content #}
+		<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+			{% block body %}{% endblock %}
+		</main>
 
 		{# Footer #}
-		<footer class="bg-slate-900 text-white py-4 fixed inset-x-0 bottom-0">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-				<p>&copy;
-					{{ "now"|date("Y") }}
-					Adrien Deval. Tous droits réservés.</p>
+		<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+				<div class="text-sm">
+					&copy; {{ "now"|date("Y") }} Adrien Deval <span class="hidden sm:inline">|</span> Tous droits réservés.
+				</div>
+				<div class="flex space-x-6">
+					<a href="https://github.com/adriendeval" class="hover:text-white transition-colors" aria-label="GitHub">
+						<i class="fi fi-brands-github text-lg"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/adriendeval35/" class="hover:text-white transition-colors" aria-label="LinkedIn">
+						<i class="fi fi-brands-linkedin text-lg"></i>
+					</a>
+				</div>
 			</div>
 		</footer>
 	</body>
