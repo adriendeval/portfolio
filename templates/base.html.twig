@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 		<title>
-			{% block title %}Portfolio - Adrien Deval{% endblock %}
+			{% block title %}Portfolio - Adrien Deval
+			{% endblock %}
 		</title>
 		<link rel="icon" href="/assets/favicon.ico"/>
 
 		<style>
 			{% block stylesheets %}
 				@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-				@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
-				@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+				@import url('https://cdn-uicons.flaticon.com / 3.0.0/uicons-brands/css/uicons-brands.css');
+				@import url('https://cdn-uicons.flaticon.com / 3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
 				* {
 					font-family: 'Space Grotesk', sans-serif;
@@ -58,15 +59,18 @@
 			<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 		{% endblock %}
 	</head>
-	<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen font-sans antialiased">
+	<body
+		class="bg-slate-50 text-slate-900 flex flex-col min-h-screen font-sans antialiased">
 		{# Barre de navigation #}
 		<nav class="bg-slate-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800 shadow-lg">
 			{% set current_route = app.request.attributes.get('_route') %}
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div
+				class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{# Checkbox Hack for Mobile Menu (matches CSS in head) #}
 				<input type="checkbox" id="nav-toggle" class="peer hidden"/>
-				
-				<div id="nav-header" class="flex justify-between h-16 items-center relative z-20">
+
+				<div
+					id="nav-header" class="flex justify-between h-16 items-center relative z-20">
 					{# Logo #}
 					<a href="{{ path('app_home') }}" class="flex-shrink-0 flex items-center gap-2 text-xl font-bold text-white tracking-tight hover:text-indigo-400 transition-colors">
 						Adrien Deval
@@ -108,22 +112,28 @@
 				<div id="nav-content" class="hidden peer-checked:block sm:hidden absolute left-0 right-0 top-16 bg-slate-900 border-b border-slate-800 shadow-2xl z-10 animate-in slide-in-from-top-2 duration-200">
 					<div class="flex flex-col p-4 space-y-2">
 						<a href="{{ path('app_competences') }}" class="{{ current_route == 'app_competences' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-star mr-2 text-indigo-400"></i> Compétences
+							<i class="fi fi-rr-star mr-2 text-indigo-400"></i>
+							Compétences
 						</a>
 						<a href="{{ path('app_formations') }}" class="{{ current_route == 'app_formations' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-graduation-cap mr-2 text-indigo-400"></i> Formations
+							<i class="fi fi-rr-graduation-cap mr-2 text-indigo-400"></i>
+							Formations
 						</a>
 						<a href="{{ path('app_experiences_professionnelles') }}" class="{{ current_route == 'app_experiences_professionnelles' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-briefcase mr-2 text-indigo-400"></i> Expériences professionnelles
+							<i class="fi fi-rr-briefcase mr-2 text-indigo-400"></i>
+							Expériences professionnelles
 						</a>
 						<a href="{{ path('app_projet_professionnel') }}" class="{{ current_route == 'app_projet_professionnel' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-rocket-lunch mr-2 text-indigo-400"></i> Projet professionnel
+							<i class="fi fi-rr-rocket-lunch mr-2 text-indigo-400"></i>
+							Projet professionnel
 						</a>
 						<a href="{{ path('app_certifications') }}" class="{{ current_route == 'app_certifications' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-certificate mr-2 text-indigo-400"></i> Certifications
+							<i class="fi fi-rr-certificate mr-2 text-indigo-400"></i>
+							Certifications
 						</a>
 						<a href="{{ path('app_veille_informatique') }}" class="{{ current_route == 'app_veille_informatique' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
-							<i class="fi fi-rr-search-alt mr-2 text-indigo-400"></i> Veille informatique
+							<i class="fi fi-rr-search-alt mr-2 text-indigo-400"></i>
+							Veille informatique
 						</a>
 					</div>
 				</div>
@@ -131,27 +141,31 @@
 		</nav>
 
 		{# Contenu des pages #}
-		<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-			{% block body %}{% endblock %}
-		</main>
+		<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12"> {% block body %}{% endblock %}
+			</main>
 
-		{# Pied de page #}
-		<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-				<div class="text-sm">
-					&copy; {{ "now"|date("Y") }} Adrien Deval <span class="hidden sm:inline">|</span> Tous droits réservés.<br>
-					Développé avec <a href="https://symfony.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Symfony</a>.
+			{# Pied de page #}
+			<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+					<div class="text-sm">
+						&copy;
+						{{ "now"|date("Y") }}
+						Adrien Deval
+						<span class="hidden sm:inline">|</span>
+						Tous droits réservés.<br>
+						Développé avec
+						<a href="https://symfony.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Symfony</a>.
+					</div>
+					<div class="flex items-center space-x-6">
+						<a href="/mentions-legales" class="hover:text-white underline">Mentions légales</a>
+						<a href="https://github.com/adriendeval" class="hover:text-white transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+							<i class="fi fi-brands-github text-lg"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/adriendeval35/" class="hover:text-white transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+							<i class="fi fi-brands-linkedin text-lg"></i>
+						</a>
+					</div>
 				</div>
-				<div class="flex items-center space-x-6">
-					<a href="/mentions-legales" class="hover:text-white underline">Mentions légales</a>
-					<a href="https://github.com/adriendeval" class="hover:text-white transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-						<i class="fi fi-brands-github text-lg"></i>
-					</a>
-					<a href="https://www.linkedin.com/in/adriendeval35/" class="hover:text-white transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-						<i class="fi fi-brands-linkedin text-lg"></i>
-					</a>
-				</div>
-			</div>
-		</footer>
-	</body>
-</html>
+			</footer>
+		</body>
+	</html>
