@@ -1,71 +1,97 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mentions Légales{% endblock %}
+{% block title %}Mentions Légales
+{% endblock %}
 
 {% block body %}
-<div class="container mx-auto px-4 py-12">
-    <h1 class="mb-12 text-center text-4xl font-bold text-gray-800">Mentions Légales</h1>
-    
-    <div class="mx-auto max-w-3xl space-y-8">
-        <!-- Éditeur du site -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Éditeur du site</h2>
-            <div class="space-y-3 text-gray-600">
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Nom :</span> 
-                    <span>DEVAL Adrien</span>
-                </p>
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Adresse :</span> 
-                    <span>118 Bis Le Lac 35120 CHERRUEIX</span>
-                </p>
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Email :</span> 
-                    <a href="mailto:adrien.deval@proton.me" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline">adrien.deval@proton.me</a>
-                </p>
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Téléphone :</span> 
-                    <a href="tel:+33643425088" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline">06 43 42 50 88</a>
-                </p>
-            </div>
-        </div>
+	<div class="container mx-auto px-4 py-12">
+		<h1 class="mb-12 text-center text-4xl font-bold text-gray-800">Mentions Légales</h1>
 
-        <!-- Hébergement -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Hébergement</h2>
-            <div class="space-y-3 text-gray-600">
-                <p class="mb-2 italic">Ce site est hébergé par :</p>
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Hébergeur :</span> 
-                    <span>AlwaysData</span>
-                </p>
-                <p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                    <span class="font-semibold text-gray-900 min-w-[100px]">Adresse :</span> 
-                    <span>91 rue du Faubourg Saint Honoré - 75008 Paris</span>
-                </p>
-            </div>
-        </div>
+		<div
+			class="mx-auto max-w-3xl space-y-8">
+			<!-- Éditeur du site -->
+			<div class="bg-white p-8 rounded-2xl shadow-lg">
+				<h2 class="text-2xl font-bold text-gray-800 mb-6">Éditeur du site</h2>
+				<div class="space-y-3 text-gray-600">
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Nom :</span>
+						<span>DEVAL Adrien</span>
+					</p>
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Adresse :</span>
+						<span>118 Bis Le Lac 35120 CHERRUEIX</span>
+					</p>
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Email :</span>
+						<a href="mailto:adrien.deval@proton.me" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">adrien.deval@proton.me</a>
+					</p>
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Téléphone :</span>
+						<a href="tel:+33643425088" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">06 43 42 50 88</a>
+					</p>
+				</div>
+			</div>
 
-        <!-- Propriété intellectuelle -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Propriété intellectuelle</h2>
-            <p class="leading-relaxed text-gray-600">
-                Le contenu de ce site (textes, images, etc.) est la propriété de <span class="font-semibold text-gray-900">DEVAL Adrien</span> sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.
-            </p>
-        </div>
+			<!-- Hébergement -->
+			<div class="bg-white p-8 rounded-2xl shadow-lg">
+				<h2 class="text-2xl font-bold text-gray-800 mb-6">Hébergement</h2>
+				<div class="space-y-3 text-gray-600">
+					<p class="mb-2 italic">Ce site est hébergé par :</p>
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Hébergeur :</span>
+						<span>AlwaysData</span>
+					</p>
+					<p class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+						<span class="font-semibold text-gray-900 min-w-[100px]">Adresse :</span>
+						<span>91 rue du Faubourg Saint Honoré - 75008 Paris</span>
+					</p>
+				</div>
+			</div>
 
-        <!-- Données personnelles & Cookies -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Données personnelles et Cookies</h2>
-            <div class="space-y-4">
-                <p class="leading-relaxed text-gray-600">
-                    Ce site ne collecte aucune donnée personnelle et n'utilise aucun cookie de traçage. Aucune information n'est enregistrée lors de votre navigation.
-                </p>
-                <p class="leading-relaxed text-gray-600">
-                    Ce site ne collecte aucun cookie. Aucune donnée personnelle n'est enregistrée lors de votre navigation.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+			<!-- Propriété intellectuelle -->
+			<div class="bg-white p-8 rounded-2xl shadow-lg">
+				<h2 class="text-2xl font-bold text-gray-800 mb-6">Propriété intellectuelle</h2>
+				<p class="leading-relaxed text-gray-600">
+					Le contenu de ce site (textes, images, etc.) est la propriété de
+					<span class="font-semibold text-gray-900">DEVAL Adrien</span>
+					sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.
+				</p>
+			</div>
+
+			<!-- Données personnelles & Cookies -->
+			<div class="bg-white p-8 rounded-2xl shadow-lg">
+				<h2 class="text-2xl font-bold text-gray-800 mb-6">Données personnelles et Cookies</h2>
+				<div class="space-y-4">
+					<p class="leading-relaxed text-gray-600">
+						Ce site ne collecte aucune donnée personnelle et n'utilise aucun cookie de traçage. Aucune information n'est enregistrée lors de votre navigation.
+					</p>
+					<p class="leading-relaxed text-gray-600">
+						Ce site ne collecte aucun cookie. Aucune donnée personnelle n'est enregistrée lors de votre navigation.
+					</p>
+				</div>
+			</div>
+
+			<!-- Crédits -->
+			<div class="bg-white p-8 rounded-2xl shadow-lg">
+				<h2 class="text-2xl font-bold text-gray-800 mb-6">Crédits</h2>
+				<div class="space-y-4">
+					<p class="leading-relaxed text-gray-600">
+						Les icônes utilisées sur ce site proviennent de
+						<a href="https://iconify.design/" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">Iconify</a>
+						et
+						<a href="https://www.flaticon.com/uicons/interface-icons" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">Flaticon</a>.
+					</p>
+					<p class="leading-relaxed text-gray-600">
+						Le police d'écriture utilisée est Space Grotesk, disponible sur
+						<a href="https://fonts.google.com/specimen/Space+Grotesk" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">Google Fonts</a>.
+					</p>
+					<p class="leading-relaxed text-gray-600">
+						Le style CSS est construit avec
+						<a href="https://tailwindcss.com/" class="text-indigo-600 transition-colors hover:text-indigo-800 hover:underline" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>.
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
 {% endblock %}

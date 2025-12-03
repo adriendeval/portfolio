@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Certifications{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 py-12">
+    <h1 class="mb-12 text-center text-4xl font-bold text-gray-800">Certifications</h1>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+        
+        <!-- SecNumAcadémie -->
+        <div class="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative aspect-video w-full overflow-hidden bg-gray-100">
+                <img src="{{ asset('images/MOOC_SecNumAcademie.png') }}" alt="MOOC SecNumAcadémie" class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105">
+                <a href="{{ asset('images/MOOC_SecNumAcademie.png') }}" target="_blank" class="absolute top-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors hover:bg-white hover:text-indigo-600" title="Ouvrir l'image">
+                    <i class="fi fi-rr-arrow-up-right text-lg leading-none flex items-center justify-center"></i>
+                </a>
+            </div>
+            <div class="p-6">
+                <h3 class="mb-2 text-xl font-bold text-gray-800">MOOC SecNumAcadémie</h3>
+                <p class="text-indigo-600 font-medium">ANSSI</p>
+            </div>
+        </div>
+
+        <!-- freeCodeCamp -->
+        <div class="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative aspect-video w-full overflow-hidden bg-gray-100">
+                <img src="{{ asset('images/ResponsiveWebDesign_freeCodeCamp.png') }}" alt="Responsive Web Design" class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105">
+                <a href="{{ asset('images/ResponsiveWebDesign_freeCodeCamp.png') }}" target="_blank" class="absolute top-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors hover:bg-white hover:text-indigo-600" title="Ouvrir l'image">
+                    <i class="fi fi-rr-arrow-up-right text-lg leading-none flex items-center justify-center"></i>
+                </a>
+            </div>
+            <div class="p-6">
+                <h3 class="mb-2 text-xl font-bold text-gray-800">Responsive Web Design</h3>
+                <p class="text-indigo-600 font-medium">freeCodeCamp</p>
+            </div>
+        </div>
+
+        <!-- Google Cloud -->
+        <div class="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative aspect-video w-full overflow-hidden bg-gray-100">
+                <img src="{{ asset('images/IntroductionToGenerativeAI_Google.png') }}" alt="Introduction to Generative AI" class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105">
+                <a href="{{ asset('images/IntroductionToGenerativeAI_Google.png') }}" target="_blank" class="absolute top-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors hover:bg-white hover:text-indigo-600" title="Ouvrir l'image">
+                    <i class="fi fi-rr-arrow-up-right text-lg leading-none flex items-center justify-center"></i>
+                </a>
+            </div>
+            <div class="p-6">
+                <h3 class="mb-2 text-xl font-bold text-gray-800">Introduction to Generative AI</h3>
+                <p class="text-indigo-600 font-medium">Google Cloud</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

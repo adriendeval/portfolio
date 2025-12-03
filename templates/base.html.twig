@@ -59,15 +59,16 @@
 		{% endblock %}
 	</head>
 	<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen font-sans antialiased">
-		{# Navbar #}
+		{# Barre de navigation #}
 		<nav class="bg-slate-900/95 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800 shadow-lg">
+			{% set current_route = app.request.attributes.get('_route') %}
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{# Checkbox Hack for Mobile Menu (matches CSS in head) #}
 				<input type="checkbox" id="nav-toggle" class="peer hidden"/>
 				
 				<div id="nav-header" class="flex justify-between h-16 items-center relative z-20">
 					{# Logo #}
-					<a href="/" class="flex-shrink-0 flex items-center gap-2 text-xl font-bold text-white tracking-tight hover:text-indigo-400 transition-colors">
+					<a href="{{ path('app_home') }}" class="flex-shrink-0 flex items-center gap-2 text-xl font-bold text-white tracking-tight hover:text-indigo-400 transition-colors">
 						Adrien Deval
 					</a>
 
@@ -82,19 +83,22 @@
 
 					{# Desktop Menu #}
 					<div class="hidden sm:flex sm:items-center sm:space-x-1">
-						<a href="/competences" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+						<a href="{{ path('app_competences') }}" class="{{ current_route == 'app_competences' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Compétences
 						</a>
-						<a href="/formations" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+						<a href="{{ path('app_formations') }}" class="{{ current_route == 'app_formations' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Formations
 						</a>
-						<a href="/experiences-professionnelles" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+						<a href="{{ path('app_experiences_professionnelles') }}" class="{{ current_route == 'app_experiences_professionnelles' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Expériences professionnelles
 						</a>
-						<a href="/projet-professionnel" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+						<a href="{{ path('app_projet_professionnel') }}" class="{{ current_route == 'app_projet_professionnel' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Projet professionnel
 						</a>
-						<a href="/veille-informatique" class="text-slate-300 hover:text-white hover:bg-slate-800 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+						<a href="{{ path('app_certifications') }}" class="{{ current_route == 'app_certifications' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+							Certifications
+						</a>
+						<a href="{{ path('app_veille_informatique') }}" class="{{ current_route == 'app_veille_informatique' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800' }} px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
 							Veille informatique
 						</a>
 					</div>
@@ -103,19 +107,22 @@
 				{# Mobile Menu Content - Improved #}
 				<div id="nav-content" class="hidden peer-checked:block sm:hidden absolute left-0 right-0 top-16 bg-slate-900 border-b border-slate-800 shadow-2xl z-10 animate-in slide-in-from-top-2 duration-200">
 					<div class="flex flex-col p-4 space-y-2">
-						<a href="/competences" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+						<a href="{{ path('app_competences') }}" class="{{ current_route == 'app_competences' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
 							<i class="fi fi-rr-star mr-2 text-indigo-400"></i> Compétences
 						</a>
-						<a href="/formations" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+						<a href="{{ path('app_formations') }}" class="{{ current_route == 'app_formations' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
 							<i class="fi fi-rr-graduation-cap mr-2 text-indigo-400"></i> Formations
 						</a>
-						<a href="/experiences-professionnelles" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+						<a href="{{ path('app_experiences_professionnelles') }}" class="{{ current_route == 'app_experiences_professionnelles' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
 							<i class="fi fi-rr-briefcase mr-2 text-indigo-400"></i> Expériences professionnelles
 						</a>
-						<a href="/projet-professionnel" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+						<a href="{{ path('app_projet_professionnel') }}" class="{{ current_route == 'app_projet_professionnel' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
 							<i class="fi fi-rr-rocket-lunch mr-2 text-indigo-400"></i> Projet professionnel
 						</a>
-						<a href="/veille-informatique" class="text-slate-300 hover:text-white hover:bg-slate-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors border border-transparent hover:border-slate-700">
+						<a href="{{ path('app_certifications') }}" class="{{ current_route == 'app_certifications' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
+							<i class="fi fi-rr-certificate mr-2 text-indigo-400"></i> Certifications
+						</a>
+						<a href="{{ path('app_veille_informatique') }}" class="{{ current_route == 'app_veille_informatique' ? 'bg-slate-800 text-white border-slate-700' : 'text-slate-300 hover:text-white hover:bg-slate-800 border-transparent hover:border-slate-700' }} block px-4 py-3 rounded-lg text-base font-medium transition-colors border">
 							<i class="fi fi-rr-search-alt mr-2 text-indigo-400"></i> Veille informatique
 						</a>
 					</div>
@@ -123,12 +130,12 @@
 			</div>
 		</nav>
 
-		{# Main Content #}
+		{# Contenu des pages #}
 		<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 			{% block body %}{% endblock %}
 		</main>
 
-		{# Footer #}
+		{# Pied de page #}
 		<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
 				<div class="text-sm">
