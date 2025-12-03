@@ -1,9 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Portfolio - Projet Professionnel{% endblock %}
+{% block title %}Projet Professionnel{% endblock %}
 
 {% block body %}
+<div class="container mx-auto px-4 py-12">
+    <h1 class="mb-12 text-center text-4xl font-bold text-gray-800">Projet Professionnel</h1>
+    
+    <div class="mx-auto max-w-3xl space-y-8">
+        <!-- Objectif -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Mon Objectif</h2>
+            <p class="leading-relaxed text-gray-600">
+                Mon ambition est de m'orienter vers les métiers de l'<strong>archivage</strong>. Je souhaite mettre mes compétences techniques en informatique au service de la préservation et de la gestion de l'information, que ce soit sous forme numérique ou physique.
+            </p>
+        </div>
 
-	<h1 class="text-6xl font-bold">Projet professionnel</h1>
+        <!-- Motivations -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Mes Motivations</h2>
+            <p class="leading-relaxed text-gray-600 mb-4">
+                L'archivage représente à mes yeux bien plus qu'un simple stockage de données. C'est un moyen essentiel de :
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
+                <li>Transmettre le savoir et les connaissances aux générations futures.</li>
+                <li>Préserver l'Histoire et la mémoire collective.</li>
+                <li>Garantir l'intégrité et la pérennité des informations dans le temps.</li>
+            </ul>
+        </div>
 
+		<!-- Entrée dans la vie active -->
+		<div class="bg-white p-8 rounded-2xl shadow-lg">
+			<h2 class="text-2xl font-bold text-gray-800 mb-6">Entrée dans la vie active</h2>
+			<p class="leading-relaxed text-gray-600">
+			Après l'obtention de mon BTS SIO, mon objectif est d'intégrer directement le monde du travail. Idéalement, j'aimerais avoir l'opportunité de continuer au sein de l'entreprise où j'effectuerai mon stage de deuxième année. Autrement, je suis particulièrement intéressé par un poste dans une bibliothèque, un service d'archives ou toute structure similaire où mes compétences pourraient être mises à profit.
+			</p>
+		</div>
+    </div>
+</div>
 {% endblock %}

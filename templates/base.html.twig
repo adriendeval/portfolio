@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Portfolio{% endblock %}
+			{% block title %}Portfolio - Adrien Deval{% endblock %}
 		</title>
 		<link rel="icon" href="/assets/favicon.ico"/>
 
@@ -44,7 +44,7 @@
 				}
 
 				::selection {
-					background-color: #6A5ACD;
+					background-color: #4F39F6;
 					color: white;
 				}
 			{% endblock %}
@@ -132,13 +132,15 @@
 		<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
 				<div class="text-sm">
-					&copy; {{ "now"|date("Y") }} Adrien Deval <span class="hidden sm:inline">|</span> Tous droits réservés.
+					&copy; {{ "now"|date("Y") }} Adrien Deval <span class="hidden sm:inline">|</span> Tous droits réservés.<br>
+					Développé avec <a href="https://symfony.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Symfony</a>.
 				</div>
-				<div class="flex space-x-6">
-					<a href="https://github.com/adriendeval" class="hover:text-white transition-colors" aria-label="GitHub">
+				<div class="flex items-center space-x-6">
+					<a href="/mentions-legales" class="hover:text-white underline">Mentions légales</a>
+					<a href="https://github.com/adriendeval" class="hover:text-white transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
 						<i class="fi fi-brands-github text-lg"></i>
 					</a>
-					<a href="https://www.linkedin.com/in/adriendeval35/" class="hover:text-white transition-colors" aria-label="LinkedIn">
+					<a href="https://www.linkedin.com/in/adriendeval35/" class="hover:text-white transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
 						<i class="fi fi-brands-linkedin text-lg"></i>
 					</a>
 				</div>

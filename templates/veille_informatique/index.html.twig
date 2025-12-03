@@ -1,10 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Portfolio - Veille informatique{% endblock %}
+{% block title %}Veille informatique{% endblock %}
 
 {% block body %}
+<div class="container mx-auto px-4 py-12">
+    <h1 class="mb-12 text-center text-4xl font-bold text-gray-800">Veille Informatique</h1>
+    <p class="mb-12 text-center text-xl text-gray-600">Les dernières actualités sur l'<u>Intelligence Artificielle</u></p>
 
-	<h1 class="text-6xl font-bold">Veille informatique</h1>
-
+    <div class="mx-auto max-w-4xl space-y-6">
+        {% if articles is empty %}
+            <div class="rounded-xl bg-red-50 p-6 text-center text-red-600">
+                <p>Impossible de charger le flux RSS pour le moment.</p>
+            </div>
+        {% else %}
+            {% for article in articles %}
+                <article class="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="rounded-full bg-indigo-100 px-3 py-1 text-sm font-medium text-indigo-800 hover:bg-indigo-800 hover:text-white transition-colors">
+                                {{ article.pubDate }}
+                            </span>
+                            <a href="{{ article.link }}" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition-colors">
+                                <i class="fi fi-rr-arrow-up-right-from-square text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors">
+                            <a href="{{ article.link }}" target="_blank">
+                                {{ article.title }}
+                            </a>
+                        </h2>
+                        
+                        {% if article.description %}
+                            <p class="text-gray-600 line-clamp-3">
+                                {{ article.description }}
+                            </p>
+                        {% endif %}
+                        
+                        <div class="mt-2">
+                            <a href="{{ article.link }}" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800">
+                                Lire l'article
+                                <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
-
