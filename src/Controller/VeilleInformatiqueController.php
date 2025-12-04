@@ -11,7 +11,7 @@ final class VeilleInformatiqueController extends AbstractController
     #[Route('/veille-informatique', name: 'app_veille_informatique')]
     public function index(): Response
     {
-        $rssUrl = 'https://www.actuia.com/feed';
+        $rssUrl = 'https://www.numerama.com/tag/intelligence-artificielle/feed/';
         $rssContent = file_get_contents($rssUrl);
         // Force UTF-8 encoding
         // $rssContent = mb_convert_encoding($rssContent, 'UTF-8', 'ISO-8859-1');
